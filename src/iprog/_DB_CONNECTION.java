@@ -17,6 +17,7 @@ public class _DB_CONNECTION {
 	} 
 	// Execute a simple query and get a RS in return.
 	public ResultSet executeQuery (String query) {
+		System.out.println("will issue> "+query);
 		Statement statement = null;	
 		try {
 			statement = this.connection.createStatement();
@@ -27,6 +28,8 @@ public class _DB_CONNECTION {
 		}
 	} 
 	public int executeUpdate (String query) {
+		System.out.println("will issue> "+query);
+
 		Statement statement = null;	
 		try {
 			statement = this.connection.createStatement();
@@ -37,6 +40,7 @@ public class _DB_CONNECTION {
 		}
 	} 
 	public boolean exists(String table, String column, String value) {
+
 		String sqlSelect = "SELECT * FROM "+ table + " WHERE "+ column + " =\"" + value  + "\";";	
 		ResultSet rs = this.executeQuery(sqlSelect);
 		

@@ -18,7 +18,6 @@
 				
 				if (c.exists("mytable","username",username)) {
 					String sql = "DELETE FROM mytable WHERE username=\"" + username  + "\" ;";	
-					System.out.println(sql);
 					int result = c.executeUpdate(sql);
 				%>
 					<jsp:forward page="index.jsp">

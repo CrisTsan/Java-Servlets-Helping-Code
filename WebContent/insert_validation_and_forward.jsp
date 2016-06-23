@@ -12,7 +12,7 @@
 <html>
 <body>
 			<% if (   request.getParameter("username") == null || request.getParameter("password") == null ) { %>
-				<jsp:forward page="register_ajax_form.jsp"></jsp:forward>
+				<jsp:forward page="insert_ajax_form.jsp"></jsp:forward>
 			<% } else {
 			
 				String username = request.getParameter("username");
@@ -22,18 +22,16 @@
 					String sql = "INSERT INTO mytable (username, password) VALUES( \"" + username  + "\" ,\"" + password + "\") ;";					
 					int result = c.executeUpdate(sql);
 				%>
-					<jsp:forward page="index.jsp">
-						<jsp:param value="<%=username%>" name="username" />
-					</jsp:forward>
-			
+					<h1>
+						Inserted <%=username%> in the database!!
+					</h1>
 				<% } else {
+					String sql = "UPDATE mytable SET password=\"" + password  + "\" where username=\""+ username +"\" ;";					
+					int result = c.executeUpdate(sql);
 					%>
 					<h1>
-						User with username <%=username%>
-						already exists!
+						Updated user <%=username%> 's password!!
 					</h1>
-					Please re-enter your details
-					<a href="register_ajax_form.jsp">here</a>
 				<% } 
 			} %>
 

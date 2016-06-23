@@ -43,7 +43,7 @@ function doWork() {
 	httpObject = getHTTPObject();
 	//alert("Preparing doWork() ");
 	if (httpObject != null) {
-		httpObject.open("GET", "_ajax_check_username.jsp?username="+document.getElementById('username').value, true);
+		httpObject.open("GET", "ajax_check_username.jsp?username="+document.getElementById('username').value, true);
 		httpObject.send(null);
 		httpObject.onreadystatechange = setOutput;
 	}
@@ -52,7 +52,7 @@ function doDeletionWork() {
 	httpObject = getHTTPObject();
 	//alert("Preparing doWork() ");
 	if (httpObject != null) {
-		httpObject.open("GET", "_ajax_check_username_for_delete.jsp?username="+document.getElementById('username').value, true);
+		httpObject.open("GET", "ajax_check_username_for_delete.jsp?username="+document.getElementById('username').value, true);
 		httpObject.send(null);
 		httpObject.onreadystatechange = setOutput;
 	}
